@@ -10,8 +10,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useModal } from "@/hooks/use-modal-store";
 
 export function FileToggle() {
+  const { onOpen } = useModal();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,8 +28,11 @@ export function FileToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" >
-        <DropdownMenuItem className="flex items-center justify-between p-2  hover:cursor-pointer space-x-3">
+      <DropdownMenuContent align="start">
+        <DropdownMenuItem
+          className="flex items-center justify-between p-2  hover:cursor-pointer space-x-3"
+          onClick={() => onOpen("inpufile")}
+        >
           <span>Input Execl File</span>
           <FileInput size={16} />
         </DropdownMenuItem>
