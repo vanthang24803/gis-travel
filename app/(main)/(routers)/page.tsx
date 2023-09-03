@@ -1,7 +1,8 @@
+import ClipLoader from "react-spinners/ClipLoader";
+import dynamic from "next/dynamic";
 export default function Home() {
-  return (
-    <main className="flex items-center justify-center h-[100vh]">
-      <span className="text-2xl dark:text-white text-black">Map is here</span>
-    </main>
-  );
+  const MapBox = dynamic(() => import("@/components/map/map"), {
+    loading: () => <ClipLoader color="#4D8CD5" />,
+  });
+  return <MapBox />;
 }
